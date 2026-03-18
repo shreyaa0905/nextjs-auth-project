@@ -46,7 +46,7 @@ if(user.email.length>0 && user.password.length>0 && user.username.length>0){
 
 
     return(
-        <div className="flex flex-col items-center justify-center min-h-screen py-2 text-white">
+        <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-black text-white">
             <h1>{loading?"Processing":"Signup"}</h1>
             <hr />
             <label htmlFor="username">username</label>

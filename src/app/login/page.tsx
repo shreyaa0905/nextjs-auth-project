@@ -23,7 +23,7 @@ try {
    const response= await axios.post("/api/users/login",user);
     console.log("Login success",response.data);
     toast.success("Login success");
-    router.push(`/profile/${response.data.userId}`);
+    router.push(`/profile`);
 } catch (error:any) {
     console.log("Login failed",error.message);
     toast.error(error.message);
@@ -44,7 +44,7 @@ else{
 
 
     return(
-        <div className="flex flex-col items-center justify-center min-h-screen py-2 text-white">
+        <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-black text-white">
             <h1>{loading? "Processing":"Login"}</h1>
             <hr />
 

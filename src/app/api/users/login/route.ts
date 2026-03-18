@@ -43,6 +43,7 @@ const response=NextResponse.json({
 })
 response.cookies.set("token",token,{
     httpOnly:true,
+    path:"/"
 })
 return response;
 
