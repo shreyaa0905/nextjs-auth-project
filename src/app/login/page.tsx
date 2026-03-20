@@ -43,40 +43,50 @@ else{
 
 
 
-    return(
-        <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-black text-white">
-            <h1>{loading? "Processing":"Login"}</h1>
-            <hr />
+ return (
+  <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-pink-400">
+    
+    <div className="bg-white p-8 rounded-2xl shadow-2xl w-[350px] text-center">
+      
+      <h1 className="text-2xl font-semibold mb-6">Login</h1>
 
-            <label htmlFor="email">email</label>
-            <input  className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 bg-white text-black"
-            id="email"
-            type="text"
-            value={user.email}
-            onChange={(e)=>setUser({...user,email:e.target.value})}
-            placeholder="email"/> 
-            
-            <label htmlFor="password">password</label>
-            <input  className="p-2 border border-gray-300 rounded-lg mb-4 
-            focus:outline-none focus:border-gray-600
-             bg-white text-black"
-            id="password"
-            type="password"
-            value={user.password}
-            onChange={(e)=>setUser({...user,password:e.target.value})}
-            placeholder="password"/> 
+      <input
+        type="email"
+        placeholder="Email"
+        className="w-full mb-4 p-2 border-b outline-none focus:border-blue-500"
+        value={user.email}
+        onChange={(e) => setUser({ ...user, email: e.target.value })}
+      />
 
-            <button
-            onClick={onLogin}
-            className="p-2 border border-gray-300 rounded-lg mb-4 focus:ouline-none focus:border-gray-600">
-                Login here
-            </button>
-            <Link href="/signup">Visit Signup page</Link>
-            
-            
-        </div>
+      <input
+        type="password"
+        placeholder="Password"
+        className="w-full mb-6 p-2 border-b outline-none focus:border-blue-500"
+        value={user.password}
+        onChange={(e) => setUser({ ...user, password: e.target.value })}
+      />
 
-        
-       
-    )
+      <button
+        onClick={onLogin}
+        className="w-full py-2 rounded-lg text-white bg-gradient-to-r from-blue-500 to-pink-400 hover:opacity-90 transition"
+      >
+        {loading ? "Processing..." : "Login"}
+      </button>
+
+      <p className="text-sm mt-4">
+  <Link href="/forgotpassword" className="text-blue-500 hover:underline">
+    Forgot Password?
+  </Link>
+</p>
+
+      <p className="text-sm mt-2">
+        Don't have an account?{" "}
+        <Link href="/signup" className="text-blue-500 hover:underline">
+          Sign up
+        </Link>
+      </p>
+
+    </div>
+  </div>
+);
 }
