@@ -1,11 +1,23 @@
 "use client";
+
 export const dynamic = "force-dynamic";
+
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-export default function ResetPassword() {
+// 🔹 Wrapper (IMPORTANT for Vercel build)
+export default function Page() {
+  return (
+    <Suspense fallback={<div className="text-center mt-10">Loading...</div>}>
+      <ResetPassword />
+    </Suspense>
+  );
+}
+
+// 🔹 Actual Component
+function ResetPassword() {
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
   const [loading, setLoading] = useState(false);
